@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { useForm } from '../hooks/useForm'
 import { DiezPorCiento } from './DiezPorCiento'
+import { Footer } from './Footer'
 
 export const App = () => {
 
+  const [formularioValido, setFormularioValido] = useState(false)
 
   const [formValues, handleInputChange] = useForm({
       sueldo: '',
@@ -15,17 +18,22 @@ export const App = () => {
     
     e.preventDefault();
 
+    setFormularioValido(true)
+
   }
 
   return (
     <div className="container">
+
+      <h1>Calculadora 10 por ciento</h1>
+      <hr/>
 
       <div className="row">
         <div className="col-md-4">
 
           <form onSubmit={handleSubmit}>
             <div className="card animate__animated animate__fadeIn">
-              <div className="card-header">
+              <div className="card-header bg-primary text-light">
                 <strong>Datos del trabajador</strong>
               </div>
 
@@ -60,7 +68,7 @@ export const App = () => {
               </div>
 
               <div className="card-footer text-end">
-                <button className="btn btn-primary">Calcular</button>
+                <button className="btn btn-outline-primary" onClick={handleSubmit}>Calcular</button>
               </div>
 
             </div>
@@ -68,9 +76,13 @@ export const App = () => {
           
         </div>
         <div className="col">
-          <DiezPorCiento valores={ {sueldo, ahorro} }/>
+
+          { formularioValido && <DiezPorCiento formValues={ formValues }/> }
+          
         </div>
       </div>
+
+      <Footer/>
     </div>
   )
 
