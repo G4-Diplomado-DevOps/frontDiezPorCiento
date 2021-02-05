@@ -1,16 +1,25 @@
 import React from 'react'
 import { useFetch } from '../hooks/useFetch'
 
-export const DiezPorCiento = ( valores ) => {
+export const DiezPorCiento = ( formValues ) => {
 
-    const {data} = useFetch('https://mindicador.cl/api/uf')
+    // Linea donde se va a buscar la API y se guarda la informacion en data
+    const { data, loading } = useFetch('https://mindicador.cl/api/uf')
 
-    const { version,autor,codigo } = !!data && data
+    // Modificar los paramestros desestructurados en base a lo que regrese API
+    const { version:impuesto, autor:dxc, nombre:saldo } = !!data && data
+
+    const refreshPage = () => {
+        window.location.reload();
+    }
 
     return (
         <div>
-            <div className="card">
-                <div className="card-header">
+
+            { loading && <div className="alert alert-info">Cargando...</div> }
+
+            <div className="card animate__animated animate__fadeIn">
+                <div className="card-header bg-primary text-light">
                     <strong>Información del retiro</strong>
                 </div>
 
@@ -23,7 +32,7 @@ export const DiezPorCiento = ( valores ) => {
                             id="impuesto"
                             name="impuesto"
                             readOnly="yes"
-                            value={version}
+                            value={impuesto}
                         />
                     </div>
 
@@ -35,7 +44,7 @@ export const DiezPorCiento = ( valores ) => {
                             id="dxc"
                             name="dxc"
                             readOnly="yes"
-                            value={autor}
+                            value={dxc}
                         />
                     </div>
 
@@ -47,9 +56,13 @@ export const DiezPorCiento = ( valores ) => {
                             id="saldo"
                             name="saldo"
                             readOnly="yes"
-                            value={codigo}
+                            value={saldo}
                         />
                     </div>
+                </div>
+
+                <div className="card-footer text-end">
+                    <button className="btn btn-outline-primary" onClick={ refreshPage }>Realizar otra simulación</button>
                 </div>
             </div>
         </div>
