@@ -3,11 +3,13 @@ import { useFetch } from '../hooks/useFetch'
 
 export const DiezPorCiento = ( formValues ) => {
 
+    const {sueldo, ahorro} = formValues.formValues;
+
     // Linea donde se va a buscar la API y se guarda la informacion en data
-    const { data, loading } = useFetch('https://mindicador.cl/api/uf')
+    const { data, loading } = useFetch(`http://54.84.190.180:8079/rest/msdxc/dxc?sueldo=${sueldo}&ahorro=${ahorro}`)
 
     // Modificar los paramestros desestructurados en base a lo que regrese API
-    const { version:impuesto, autor:dxc, nombre:saldo } = !!data && data
+    const { impuesto, dxc, saldo } = !!data && data
 
     const refreshPage = () => {
         window.location.reload();

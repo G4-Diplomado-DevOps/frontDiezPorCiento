@@ -77,7 +77,7 @@ export const App = () => {
         </div>
         <div className="col">
 
-          { formularioValido && <DiezPorCiento formValues={ formValues }/> }
+          { formularioValido && <DiezPorCiento formValues={ formValues } /> }
           
         </div>
       </div>
