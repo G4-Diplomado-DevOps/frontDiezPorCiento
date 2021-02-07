@@ -68,7 +68,7 @@ export const App = () => {
               </div>
 
               <div className="card-footer text-end">
-                <button className="btn btn-outline-primary" onClick={handleSubmit}>Calcular</button>
+                <button className="btn btn-outline-primary" onClick={handleSubmit} id="calcular">Calcular</button>
               </div>
 
             </div>
