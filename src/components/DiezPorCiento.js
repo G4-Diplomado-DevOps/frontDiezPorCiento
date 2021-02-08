@@ -6,7 +6,8 @@ export const DiezPorCiento = ( formValues ) => {
     const {sueldo, ahorro} = formValues.formValues;
 
     // Linea donde se va a buscar la API y se guarda la informacion en data
-    const { data, loading } = useFetch(`http://54.84.190.180:8079/rest/msdxc/dxc?sueldo=${sueldo}&ahorro=${ahorro}`)
+    //const { data, loading } = useFetch(`http://54.84.190.180:8079/rest/msdxc/dxc?sueldo=${sueldo}&ahorro=${ahorro}`)
+    const { data, loading } = useFetch(`http://localhost:8085/rest/msdxc/dxc?sueldo=${sueldo}&ahorro=${ahorro}`)
 
     // Modificar los paramestros desestructurados en base a lo que regrese API
     const { impuesto, dxc, saldo } = !!data && data

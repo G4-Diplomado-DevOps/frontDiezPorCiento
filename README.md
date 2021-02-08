@@ -1,15 +1,18 @@
 # Calculadora de 10%
 ## Instalación
 
+### Instalar NPM
+Descargar e instalar La version LTS de NodeJS (Que incluye NPM) desde
+`https://nodejs.org/es/download/`
+De acuerdo a sus sistema operativo
+
 ### Descarga de proyecto
-Descargar proyecto en ambiente local
+Descargar proyecto en ambiente local (Git o Clone)
 
 ### Descarga de paquetes
-Descargar los paquetes necesarios para el uso del aplicativo
-
+Descargar los paquetes necesarios para el uso del aplicativo utilizando npm
 `npm install`
 
 ### Correr proyecto
-Ejecutar el proyecto
-
+Ejecutar el proyecto utilizando npm
 `npm start`
