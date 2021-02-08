@@ -7,7 +7,7 @@ Descargar e instalar La version LTS de NodeJS (Que incluye NPM) desde
 De acuerdo a sus sistema operativo
 
 ### Descarga de proyecto
-Descargar proyecto en ambiente local (Git o Clone)
+Descargar proyecto en ambiente local (Clone o Fork)
 
 ### Descarga de paquetes
 Descargar los paquetes necesarios para el uso del aplicativo utilizando npm
